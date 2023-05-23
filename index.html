@@ -59,20 +59,26 @@ div.tooltip {
 	visibility: hidden;
 }
 
-#map-container{
-	height: 890px;
-	width: 1410px;
-	border: 2px solid #3d4a57;
-	position: relative;
-	display: block;
-}
+<!-- #map-container{ -->
+	<!-- height: 890px; -->
+	<!-- width: 1410px; -->
+	<!-- border: 2px solid #3d4a57; -->
+	<!-- position: relative; -->
+	<!-- display: block; -->
+<!-- } -->
+<!-- #map { -->
+	<!-- position: absolute; -->
+	<!-- height: 100%; -->
+	<!-- width: 100%; -->
+	<!-- background-color: #333; -->
+	<!-- pointer-events: all; -->
+	<!-- display: block; -->
+<!-- } -->
 #map {
-	position: absolute;
 	height: 100%;
 	width: 100%;
 	background-color: #333;
 	pointer-events: all;
-	display: block;
 }
 #table-container{
 	height: 890px;
@@ -89,7 +95,7 @@ div.tooltip {
 	padding-right: 10px;
 }
 .point{
-	fill: #B60101;
+	fill: #ED3200;
 	fill-opacity: .7;
 }
 #riskTable{
@@ -125,13 +131,13 @@ tr.shown td.details-control {
 	  </div>
 	</div>
 	<div class="row">
-		  <div class="col-md-9">
-			  <div class="chart-stage" id="map-container">
+		  <div class="col-md-9" style="height:89vh">
+			  <div class="chart-stage" id="map-container" style="border:1px solid black;height:100%;width:100%">
 				<div id="map"></div>
 			  </div>
 		  </div>
 
-			  <div class="col-md-3">
+			  <div class="col-md-3" style="height:89vh">
 				<div class="chart-wrapper" id="table-container">
 				  <div class="chart-stage" id="chart-01">
 					<table id="riskTable" class="display" style="width:100%">
@@ -169,7 +175,7 @@ $(document).ready(function(){
 	var latlong = [];
 	var selection = [];
 	var formatDate = d3.time.format("%-m/%-d/%Y").parse;
-var map = L.map('map').setView([40.713312, -73.977407], 11);
+var map = L.map('map').setView([40.72215448921957, -73.98616799064006], 14);
 
 L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png', {attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
 var tooltip = d3.select('body').append('div')
